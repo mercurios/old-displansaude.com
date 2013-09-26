@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Envio de e-mail com anexo</title>
+</head>
+
+<body>
+
+        <?php
+        if ($_POST) {
+            require('class/Mail_attach.php');
+            
+            $attach = new Mail_attach($_POST['from'], $_POST['to'], $_POST['subject'], $_POST['message']);
+            
+                        if ($attach->sendMail($_FILES['attach'])) {
+                echo 'E-mail enviado com sucesso!';
+            } else {
+                echo 'Erro ao anexar arquivo ou enviar e-mail.';
+            }
+        }
+    ?>
+    
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <p>
+                <label><input type="text" name="from" /> Remetente</label>
+            </p>
+            
+            <p>
+                <label><input type="text" name="to" /> Destinat&aacute;rio</label>
+            </p>
+        
+            <p>
+                <label><input type="text" name="subject" /> Assunto</label>
+            </p>
+        
+            <p>
+                <input type="file" name="attach" />
+            </p>
+    
+            <p>
+                <textarea cols="30" rows="7" name="message"></textarea>
+            </p>
+            
+            <p><input type="submit" value="Enviar" /></p>
+        </fieldset>
+    
+    </form>
+
+</body>
+</html>

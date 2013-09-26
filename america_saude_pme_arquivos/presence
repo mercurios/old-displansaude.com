@@ -1,0 +1,1 @@
+Microsoft_Live_Messenger_PresenceButton_onPresence({    "icon": {        "url": "http://www.wlmessenger.net/static/img/presence/Offline.gif", "height": 16, "width": 16    }, "statusText": "Offline", "status": "Offline", "displayName": "", "id": "d30d7aa50e9b4afd@apps.messenger.live.com", "result": {        "code": 200, "response": "OK"    }});
